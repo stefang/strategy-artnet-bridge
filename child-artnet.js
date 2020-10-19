@@ -1,3 +1,4 @@
+var myArgs = process.argv.slice(2);
 var dmxlib = require('@stefang/dmxnet');
 
 var dmxnet = new dmxlib.dmxnet({
@@ -5,7 +6,8 @@ var dmxnet = new dmxlib.dmxnet({
 });
 
 var sender = dmxnet.newSender({
-  ip: '192.168.68.115',
+  ip: myArgs[0],
+  port: myArgs[1],
   subnet: 0,
   universe: 0,
   net: 0,

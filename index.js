@@ -4,9 +4,11 @@ const express = require('express');
 const cors = require('cors');
 const bodyParser = require("body-parser");
 const app = express();
+
+const ADDRESS = "192.168.68.115";
 const PORT = 6455;
 
-const artnetChild = fork(path.join(__dirname, '/child-artnet.js'));
+const artnetChild = fork(path.join(__dirname, '/child-artnet.js'), [ADDRESS, PORT]);
 
 app.use(cors());
 
