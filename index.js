@@ -5,10 +5,11 @@ const cors = require('cors');
 const bodyParser = require("body-parser");
 const app = express();
 
-const ADDRESS = "192.168.68.115";
+const ARTNET_ADDRESS = "192.168.68.115";
+const ARTNET_PORT = 6454;
 const PORT = 6455;
 
-const artnetChild = fork(path.join(__dirname, '/child-artnet.js'), [ADDRESS, PORT]);
+const artnetChild = fork(path.join(__dirname, '/child-artnet.js'), [ARTNET_ADDRESS, ARTNET_PORT]);
 
 app.use(cors());
 
@@ -46,4 +47,19 @@ process.on( 'SIGTERM', function () {
   server.close(function () {
     console.log("Finished all requests");
   });
+});
+
+artnetChild.on ( 'EHOSTDOWN', function() {
+  console.log("Can't reach specified Artnet Node");
+  process.exit();
+});
+
+artnetChild.on ( 'EHOSTUNREACH', function() {
+  console.log("Can't reach specified Artnet Node");
+  process.exit();
+});
+
+artnetChild.on('exit', function (code, signal) {
+  console.log('Child exited:', code, signal);
+  process.exit();
 });
