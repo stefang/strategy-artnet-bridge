@@ -49,17 +49,7 @@ process.on( 'SIGTERM', function () {
   });
 });
 
-artnetChild.on ( 'EHOSTDOWN', function() {
-  console.log("Can't reach specified Artnet Node");
-  process.exit();
-});
-
-artnetChild.on ( 'EHOSTUNREACH', function() {
-  console.log("Can't reach specified Artnet Node");
-  process.exit();
-});
-
-artnetChild.on('exit', function (code, signal) {
+artnetChild.on( 'exit' , function (code, signal) {
   console.log('Child exited:', code, signal);
   process.exit();
 });
