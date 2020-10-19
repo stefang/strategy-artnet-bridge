@@ -1,6 +1,6 @@
 {
   "name": "@stefang/strategy-artnet-bridge",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "A very basic web host - artnet bridge for use with strategy-artnet",
   "repository": "git://github.com/stefang/strategy-artnet-bridge.git",
   "main": "index.js",
