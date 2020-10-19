@@ -7,7 +7,7 @@ var dmxnet = new dmxlib.dmxnet({
 
 var sender = dmxnet.newSender({
   ip: myArgs[0],
-  port: myArgs[1],
+  port: parseInt(myArgs[1]),
   subnet: 0,
   universe: 0,
   net: 0,
