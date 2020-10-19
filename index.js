@@ -5,7 +5,7 @@ const bodyParser = require("body-parser");
 const app = express();
 const PORT = 6455;
 
-const artnetChild = fork('child-artnet.js');
+const artnetChild = fork(path.join(__dirname, '/child-artnet.js'));
 
 app.use(cors());
 

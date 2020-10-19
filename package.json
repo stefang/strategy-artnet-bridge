@@ -1,8 +1,18 @@
 {
+  "name": "@stefang/strategy-artnet-bridge",
+  "version": "0.0.2",
+  "description": "A very basic web host - artnet bridge for use with strategy-artnet",
+  "repository": "git://github.com/stefang/strategy-artnet-bridge.git",
+  "main": "index.js",
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com/"
+  },
   "dependencies": {
     "body-parser": "^1.19.0",
     "cors": "^2.8.5",
     "@stefang/dmxnet": "^0.5.2",
     "express": "^4.17.1"
-  }
+  },
+  "author": "Stefan Goodchild @ Triple Geek",
+  "license": "MIT"
 }
